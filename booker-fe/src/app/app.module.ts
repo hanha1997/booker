@@ -1,3 +1,4 @@
+import { BookmarkModule } from './bookmark/bookmark.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -9,11 +10,15 @@ import { SignUpModule } from './auth/sign-up/sign-up.module';
 import { APOLLO_OPTIONS, ApolloModule } from 'apollo-angular';
 import { HttpLink } from 'apollo-angular/http';
 import { InMemoryCache } from '@apollo/client/cache';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
+import { HomeModule } from './home/home.module';
+import { Bookmark1Module } from './bookmark/bookmark1/bookmark1.module';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { Bookmark1Component } from './bookmark/bookmark1/bookmark1.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
@@ -23,8 +28,11 @@ import { HttpClientModule } from '@angular/common/http'
     LoginModule,
     SignUpModule,
     ApolloModule,
-    HttpClientModule
-
+    HttpClientModule,
+    HomeModule,
+    BookmarkModule,
+    Bookmark1Module,
+    MatToolbarModule
   ],
   providers: [
     {
