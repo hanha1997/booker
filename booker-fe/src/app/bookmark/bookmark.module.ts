@@ -13,6 +13,7 @@ import { Bookmark1Component } from './bookmark1/bookmark1.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterModule } from '@angular/router';
 import { AddLinkComponent } from './bookmark1/add-link/add-link.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { AddLinkComponent } from './bookmark1/add-link/add-link.component';
     MatCardModule,
     MatToolbarModule,
     RouterModule,
+    MatProgressSpinnerModule
   ],
   exports: [BookmarkComponent]
 })

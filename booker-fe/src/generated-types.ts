@@ -117,6 +117,13 @@ export type BookmarkQueryVariables = Exact<{
 
 export type BookmarkQuery = { __typename?: 'Query', bookmark: { __typename?: 'Bookmark', _id: string, name: string, links: Array<string>, userId: string } };
 
+export type LinksQueryVariables = Exact<{
+  urls: Array<Scalars['String']> | Scalars['String'];
+}>;
+
+
+export type LinksQuery = { __typename?: 'Query', links: Array<{ __typename?: 'Link', siteName: string, title: string, images: Array<string>, url: string }> };
+
 export type BookmarksQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -184,6 +191,27 @@ export const BookmarkDocument = gql`
   })
   export class BookmarkGQL extends Apollo.Query<BookmarkQuery, BookmarkQueryVariables> {
     document = BookmarkDocument;
+    
+    constructor(apollo: Apollo.Apollo) {
+      super(apollo);
+    }
+  }
+export const LinksDocument = gql`
+    query links($urls: [String!]!) {
+  links(urls: $urls) {
+    siteName
+    title
+    images
+    url
+  }
+}
+    `;
+
+  @Injectable({
+    providedIn: 'root'
+  })
+  export class LinksGQL extends Apollo.Query<LinksQuery, LinksQueryVariables> {
+    document = LinksDocument;
     
     constructor(apollo: Apollo.Apollo) {
       super(apollo);
